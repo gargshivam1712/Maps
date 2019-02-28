@@ -28,7 +28,7 @@ function showPosition(position) {
   log=position.coords.longitude;
   lat=position.coords.latitude;
 var uluru = {lat: lat , lng:log};
-var map = new google.maps.Map(document.getElementById("googleMap"), {zoom: 15, center: uluru});
+var map = new google.maps.Map(document.getElementById("googleMap"), {zoom: 20, center: uluru});
   // The marker, positioned at Uluru
 var marker = new google.maps.Marker({position: uluru, map: map});
 }
