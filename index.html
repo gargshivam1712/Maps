@@ -10,8 +10,6 @@
 
 <script>
 var x = document.getElementById("demo");
-var log;
-var lat;
 getLocation();
 
 function getLocation() {
@@ -25,8 +23,8 @@ function getLocation() {
 function showPosition(position) {
   x.innerHTML = "Latitude: " + position.coords.latitude + 
   "<br>Longitude: " + position.coords.longitude;
-  log=position.coords.longitude;
-  lat=position.coords.latitude;
+  var log=position.coords.longitude;
+  var lat=position.coords.latitude;
 var uluru = {lat: lat , lng:log};
 var map = new google.maps.Map(document.getElementById("googleMap"), {zoom: 20, center: uluru});
   // The marker, positioned at Uluru
