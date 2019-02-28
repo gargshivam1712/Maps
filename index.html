@@ -2,22 +2,39 @@
 <html>
 <body>
 
-<h1>My First Google Map</h1>
+<p>Click the button to get your coordinates.</p>
 
-<div id="googleMap" style="width:100%;height:400px;"></div>
+<button onclick="getLocation()">Try It</button>
+
+<p id="demo"></p>
 
 <script>
-function myMap() {
-  alert("hfghjkjl");
-var mapProp= {
-  center:new google.maps.LatLng(51.508742,-0.120850),
-  zoom:5,
-};
-var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+var x = document.getElementById("demo");
+var log;
+var lat;
+getLocation();
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude;
+  log=position.coords.longitude;
+  lat=position.coords.latitude;
+var uluru = {lat: lat , lng:log};
+var map = new google.maps.Map(document.getElementById("googleMap"), {zoom: 15, center: uluru});
+  // The marker, positioned at Uluru
+var marker = new google.maps.Marker({position: uluru, map: map});
 }
 </script>
-
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvk6QGQAkxb-rKZGrCtv7C5jJW_HeqUQs&callback=myMap"></script>
-
+<div id="googleMap" style="width:100%;height:400px;"></div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvk6QGQAkxb-rKZGrCtv7C5jJW_HeqUQs&callback=myMap"> 
+</script>
 </body>
 </html>
