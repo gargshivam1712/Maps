@@ -21,12 +21,19 @@ function getLocation() {
 }
 
 function showPosition(position) {
-  x.innerHTML = "Latitude: " + position.coords.latitude + 
-  "<br>Longitude: " + position.coords.longitude;
   var log=position.coords.longitude;
   var lat=position.coords.latitude;
   alert(lat+","+log);
 var uluru = {lat: lat , lng:log};
+  var locAPI="http://maps.googleapis.com/maps/api/geocode/json?latlng="+lat+","+log+"&sensor=true"
+  x.innerHTML=locAPI;
+  $.get({
+    url:locAPI,
+    success: function(data){
+      console.log(data);
+    
+    }
+  });
 var map = new google.maps.Map(document.getElementById("googleMap"), {zoom: 20, center: uluru});
   // The marker, positioned at Uluru
 var marker = new google.maps.Marker({position: uluru, map: map});
