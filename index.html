@@ -16,7 +16,7 @@ var x = document.getElementById("demo");
   getLocation();
 function getLocation() {
   if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition);
+    var watchId=navigator.geolocation.watchPosition(showPosition);
     alert("checsk");
   } else { 
     x.innerHTML = "Geolocation is not supported by this browser.";
