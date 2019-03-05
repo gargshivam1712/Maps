@@ -13,11 +13,9 @@
 
 <script>
 var x = document.getElementById("demo");
-getLocation();
-
 function getLocation() {
   if (navigator.geolocation) {
-    navigator.geolocation.watchPosition(showPosition);
+    var watchId=navigator.geolocation.watchPosition(showPosition);
   } else { 
     x.innerHTML = "Geolocation is not supported by this browser.";
   }
@@ -44,7 +42,7 @@ var marker = new google.maps.Marker({position: uluru, map: map});
 }
 </script>
 <div id="googleMap" style="width:100%;height:400px;"></div>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvk6QGQAkxb-rKZGrCtv7C5jJW_HeqUQs&callback=myMap"> 
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBvk6QGQAkxb-rKZGrCtv7C5jJW_HeqUQs&callback=getLocation"> 
 </script>
 </body>
 </html>
