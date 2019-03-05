@@ -23,11 +23,9 @@ function getLocation() {
 }
 
 function showPosition(position) {
-  alert("watchPosition");
   var log=position.coords.longitude;
   var lat=position.coords.latitude;
-  alert(lat+","+log);
-var uluru = {lat: lat , lng:log};
+  var uluru = {lat: lat , lng:log};
   var locAPI="http://maps.googleapis.com/maps/api/geocode/json?latlng="+lat+","+log+"&sensor=true"
   x.innerHTML=locAPI;
   $.get({
